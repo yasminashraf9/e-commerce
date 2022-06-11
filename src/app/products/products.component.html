@@ -1,0 +1,31 @@
+
+<section>
+    <!-- side-nav with categories  -->
+    <nav class="categories" [class.show]="categoriesShow" (click)="toggleShow()">
+        <ul>
+            <li>Products</li>
+            <li><button (click)="showAllProducts()" [class.active]="categories.all">All ({{allProducts.length}})</button></li>
+            <li><button (click)="showSimpleProducts()" [class.active]="categories.simple">simple ({{simpleProducts.length}})</button></li>
+            <li><button (click)="showComplexProducts()" [class.active]="categories.complex">complex ({{complexProducts.length}})</button></li>
+        </ul>
+    </nav>
+    <!-- products show section  -->
+    <div class="showSection">
+        <div class="header">
+            <span>Products</span> 
+            <button (click)="getProducts()"><strong>Sync</strong></button>
+        </div>
+        <div class="product">
+            <div *ngFor="let product of shownProducts" >
+                <div class="card">
+                    <img [src]="product.imageUrl" alt="Maybe an error from server">
+                    <button (click)="getProduct(product.id)">Sync</button>
+                    <div class="cardInfo">
+                        <h6>{{product.name}}</h6>
+                        <p>{{product.price | currency}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

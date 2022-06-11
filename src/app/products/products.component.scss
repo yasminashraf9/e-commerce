@@ -1,0 +1,116 @@
+
+section{
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    font-family: 'Comfortaa', cursive;
+    /////side-nav with categories 
+    .categories{
+        height: 150vh;
+        padding: 20px;
+        border-right: 1px solid rgba(156, 156, 156, 0.479);
+        box-shadow: 0px .1px 8px 0px rgba(153, 153, 153, 0.5);
+        ul li{
+            padding: 8px 0;
+            button{
+                border: none;
+                background-color: transparent;
+                &.active{
+                    color: blue;
+                }
+            }
+        }
+    }
+    /////// products show section 
+    .showSection{
+        background-color: #e5effa83;
+        div{
+            display: flex;
+            flex-wrap: wrap;
+            padding: .8%;
+        }
+        .header{
+            justify-content: space-between;
+            padding: 1.2% 3%;
+            span{
+                font-size: x-large;
+            }
+            button{
+                border: none;
+                background-color: #FDD228;
+                color: white;
+                padding: 5px 45px;
+                border-radius: 3px;
+            }
+        }
+        ///// styling of each product 
+        .product {
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 2.5em;
+            .card{
+                position: relative;
+                padding: 0;
+                margin: 5px 0px;
+                display: flex;
+                flex-direction: column;
+                border: 1px solid rgba(182, 182, 182, 0.4);
+                filter: drop-shadow(1px 0 5px rgba(190, 190, 190, 0.4)); 
+                img{
+                    background-color: white;
+                    width: 15em;
+                    height: 160px;
+                    color: rgb(180, 180, 180);
+                    text-align: center;
+                }
+                button{
+                    position: absolute;
+                    top: 8%;
+                    right: 8%;
+                    border: none;
+                    background-color: #55C3E4;
+                    color: white;
+                    padding: 5px 18px;
+                    border-radius: 5px;
+                }
+                .cardInfo{
+                    display: flex;
+                    flex-direction: column;
+                    background-color: #f2f9fa75;
+                    border-top: 1px solid rgba(182, 182, 182, 0.4);
+                    h6,p{
+                        text-align: center;
+                        padding-top: 10px;
+                        letter-spacing: .1rem;
+                    }
+                    p{
+                        color: gray;
+                        padding-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width : 700px) {
+    section{
+        grid-template-columns: 1fr;
+        .categories{
+            height: fit-content;
+            position: fixed;
+            background-color: #65c4e0d0;
+            transform: translate(-85%,80%);
+            border-radius: 10px;
+            &.show{
+                transform: translate(-1% , 80%);
+                transition: all 1.5s;
+                z-index: 1;
+            }
+        }
+    }
+    .showSection .header{
+       margin-top: 10px;
+    }
+    
+}
